@@ -117,7 +117,7 @@ var choice = await prompt("\nPlease input the number of target you need to attac
 var idx = parseInt(choice);
 
 if (isNaN(idx) || idx < 0 || idx >= candidates.length) {
-println("❌ Invalid choice无效选择");
+println("❌ Invalid choice");
 return;
 }
 
