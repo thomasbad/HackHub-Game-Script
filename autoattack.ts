@@ -27,13 +27,13 @@ return modules.find(m => m.name.includes("/apache/")) || modules[0];
 } else if (keyword === "mariadb" || keyword === "mysql") {
 return modules.find(m => m.name.includes("/mysql/")) || modules[0];
 }
-return modules[0]; // 兜底
+return modules[0]; // return value
 }
 
 // =============== Attacking ===============
 async function performAttack(ip, port, moduleName, version) {
 const msf = GetMetasploit();
-println("\n🔧 正在使用模块: " + moduleName);
+println("\n🔧 Now using: " + moduleName);
 
 await msf.Use(moduleName);
 await msf.SetOption("RHOST", ip);
@@ -48,7 +48,7 @@ println("❌ Exploit failed: " + e);
 }
 }
 
-// =============== 主流程 ===============
+// =============== Main Process ===============
 async function Main() {
 var ip = await prompt("Please enter the target IP：");
 if (!Networking.IsIp(ip)) {
